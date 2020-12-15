@@ -24,6 +24,7 @@
                     <label class="form-control-placeholder" for="password">Password</label>
                 </div>
                 <button type="submit" class="btn btn-primary pull-right">Save</button>
+                test
             </form>
         </div>
     </div>
