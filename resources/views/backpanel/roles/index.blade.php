@@ -7,39 +7,31 @@
     @endif
 
     <div class="d-flex justifly-content-between">
-        <a href="{{ route('user.create') }}" class="btn btn-success rounded">Create User</a>
+        <a href="{{ route('role.create') }}" class="btn btn-success rounded">Create Role</a>
     </div>
     {{-- <h2>All Users</h2> --}}
 
     <div class="card">
         <div class="card-header card-header-warning">
-            <h4 class="card-title">All User</h4>
+            <h4 class="card-title">All Role</h4>
         </div>
         <div class="card-body">
             <table class="table tavle-hover">
                 <tr>
-                    <th>Avatar</th>
                     <th>Name</th>
-                    <th>Email</th>
-                    <th>Role</th>
                     <th colspan="2" class="text-center">Action</th>
                 </tr>
-                @forelse ($users as $user)
+                @forelse ($roles as $role)
                     <tr>
-                        <td>
-                            <img src="{{$user->avatar}}" alt="{{$user->name}}" width="75px">
-                        </td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>{{ $user->roles[0]->name}}</td>
+                        <td>{{ $role->name }}</td>
                         <td align="right">
-                            <a href="{{ route('user.edit', [$user->id]) }}" class="btn btn-warning btn-sm rounded">
+                            <a href="{{ route('role.edit', [$role->id]) }}" class="btn btn-warning btn-sm rounded">
                                 <i class="material-icons">edit</i>
                                 Edit
                             </a>
                         </td>
                         <td>
-                            <form action="{{ route('user.destroy', [$user->id]) }}" method="post">
+                            <form action="{{ route('role.destroy', [$role->id]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm rounded">
@@ -52,7 +44,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4">No users found</td>
+                        <td colspan="4">No Role found</td>
                     </tr>
                 @endforelse
             </table>
